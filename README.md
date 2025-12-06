@@ -230,8 +230,7 @@ Folyamatábra:
 
 ### A működés folyamatábrája
 
-
-    ```mermaid
+```mermaid
 flowchart TD
     A([Indítás / reset]) --> B[setup()]
     B --> C[Hardver inicializálás<br>LCD, DHT11, PIR, IR, gomb, LED-ek, buzzer]
