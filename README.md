@@ -37,7 +37,7 @@ Megvalósítási terv:
 
 ---
 
-## Készítők listája
+##Készítők listája
 
 A projekt megvalósítói:  
 
