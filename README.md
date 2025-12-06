@@ -232,6 +232,9 @@ Folyamatábra:
 
 flowchart TD
     A([Indítás / reset]) --> B[setup()]
+    ```mermaid
+flowchart TD
+    A([Indítás / reset]) --> B[setup()]
     B --> C[Hardver inicializálás<br>LCD, DHT11, PIR, IR, gomb, LED-ek, buzzer]
     C --> D[WiFi és idő beállítása<br>connectWiFiAndTime()]
     D --> E[showMenu()<br>alap menü kiírása]
@@ -261,6 +264,8 @@ flowchart TD
     T --> U[handleScroll()]
     U --> V[Ha scrollingActive igaz<br>szöveg görgetése az LCD-n]
     V --> F
+```
+
 
 
 
