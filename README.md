@@ -18,7 +18,7 @@ Megvalósítási terv:
 
 - [ESP32 alapú IoT környezetfigyelő és jelenlétérzékelő állomás](#esp32-alapú-iot-környezetfigyelő-és-jelenlétérzékelő-állomás)
   - [Tartalom](#tartalom)
-  - [Feladat](#feladat)
+  - [Készítők listája](#Készítők listája)
     - [Követelmények](#követelmények)
   - [Megvalósítás](#megvalósítás)
     - [Szimulációs környezet](#szimulációs-környezet)
@@ -37,7 +37,7 @@ Megvalósítási terv:
 
 ---
 
-## Feladat
+## Készítők listája
 
 A projekt megvalósítói:  
 
