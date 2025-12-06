@@ -230,62 +230,37 @@ Folyamatábra:
 
 ### A működés folyamatábrája
 
-```mermaid
 flowchart TD
-    A([Indítás / Reset]) --> B[setup()]
-    B --> C[Hardver inicializálás<br/>LCD, DHT11, PIR, IR vevő, gomb, LED-ek, buzzer]
-    C --> D[connectWiFiAndTime()<br/>WiFi + NTP csatlakozás]
-    D -->|Sikerült 15 mp-en belül| E[Idő beállítva]
-    D -->|Sikertelen| F[Idő nincs, de program fut tovább]
-    E --> G[showMenu()<br/>Funkciólista kiírása LCD-re]
-    F --> G
-    G --> H[[loop() – fő ciklus]]
+    A([Indítás / reset]) --> B[setup()]
+    B --> C[Hardver inicializálás<br>LCD, DHT11, PIR, IR, gomb, LED-ek, buzzer]
+    C --> D[WiFi és idő beállítása<br>connectWiFiAndTime()]
+    D --> E[showMenu()<br>alap menü kiírása]
+    E --> F[[loop() – fő ciklus]]
 
-    H --> I[handleIR()<br/>érkezett IR jel?]
-    I -->|Nincs| J
-    I -->|Van| K[Új IR kód feldolgozása]
+    F --> G[handleIR()]
+    G --> H{Érvényes<br>IR kód?}
+    H -->|Nem| I[IR: nincs érdemi esemény]
+    H -->|Igen| J[Menü / debug mód<br>állítása, LCD frissítés,<br>buzzer jelzés]
 
-    K --> L{*-gomb?<br/>(BD42FF00)}
-    L -->|Igen| M[debugMode átkapcsolása<br/>LCD: \"DEBUG MOD: AKTIV/KI\"<br/>buzzer pittyen]
-    L -->|Nem| N{debugMode aktív?}
+    I --> K[handleButton()]
+    K --> L{Gomb<br>lenyomva?}
+    L -->|Igen| M[Menü léptetése<br>currentMenu változik,<br>showMenuFunction(), buzzer]
+    L -->|Nem| N[Button: nincs esemény]
 
-    N -->|Igen| O[showDebugCode()<br/>IR kód HEX kiírása LCD + Serial]
-    N -->|Nem| P{Melyik IR kód?}
+    J --> O
+    M --> O
+    N --> O[handleDHT()]
+    O --> P{Eltelt<br>2 másodperc?}
+    P -->|Nem| Q
+    P -->|Igen| R[DHT11 olvasás<br>lastH, lastT, lastHI frissítése]
 
-    P -->|1 (E916FF00)| Q1[currentMenu=1<br/>showHumTemp()<br/>hő, pára, hőérzet<br/>buzzer pittyen]
-    P -->|2 (E619FF00)| Q2[currentMenu=2<br/>showPIRactive=true<br/>showPIR()<br/>LCD: Mozgás / Nincs]
-    P -->|3 (F20DFF00)| Q3[currentMenu=3<br/>showDateTime()<br/>dátum + idő]
-    P -->|4 (F30CFF00)| Q4[currentMenu=4<br/>showMenu()<br/>funkciólista görgetve]
-    P -->|5 (E718FF00)| Q5[currentMenu=5<br/>showWiFiInfo()<br/>SSID + jelerő]
-    P -->|6 (A15EFF00)| Q6[currentMenu=6<br/>showSystemInfo()<br/>heap + CPU freki]
-    P -->|Fel (B946FF00)| Q7[currentMenu = (menu % 6) + 1<br/>showMenuFunction(menu)]
-    P -->|Le (EA15FF00)| Q8[currentMenu = menu-1 vagy 6<br/>showMenuFunction(menu)]
-    Q1 --> J
-    Q2 --> J
-    Q3 --> J
-    Q4 --> J
-    Q5 --> J
-    Q6 --> J
-    Q7 --> J
-    Q8 --> J
-    M --> J
-    O --> J
+    Q --> S
+    R --> S[handlePIR()]
 
-    J --> R[handleScroll()<br/>ha scrollingActive és 800 ms eltelt:<br/>LCD két sor görgetése]
-    R --> S[handleDHT()<br/>2 s-onként DHT11 olvasás<br/>lastH, lastT, lastHI frissítése]
-
-    S --> T[handlePIR()<br/>PIR állapot beolvasása<br/>LED_ACT / LED_NACT állítása<br/>pirActive frissítése]
-    T --> U{showPIRactive igaz<br/>ÉS állapot változott?}
-    U -->|Igen| V[showPIR()<br/>LCD: Mozgás / Nincs érzékelve]
-    U -->|Nem| W[megy tovább]
-    V --> W
-
-    W --> X[handleButton()<br/>gomb lenyomás (LOW) és debounce >400 ms?]
-    X -->|Nem| Y
-    X -->|Igen| Z[currentMenu = (menu % 6) + 1<br/>showMenuFunction(menu)<br/>buzzer pittyen]
-    Z --> Y
-
-    Y --> H
+    S --> T[PIR állapot olvasása<br>pirActive frissítése,<br>LED_ACT / LED_NACT állítása]
+    T --> U[handleScroll()]
+    U --> V[Ha scrollingActive igaz<br>szöveg görgetése az LCD-n]
+    V --> F
 
 
 
