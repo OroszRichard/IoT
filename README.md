@@ -8,7 +8,7 @@ A projekt célja egy ESP32 mikrokontrollerrel vezérelt, önműködő IoT rendsz
 
 A rendszer alkalmas egyszerű okosotthon-szerű funkciók demonstrálására (riasztás, állapotjelzés, környezetfigyelés).
 
-*Itt lehet egy kép a kész eszközről:*  
+Megvalósítási terv:
 ![IoT](circuit_image.png)
 
 
@@ -37,14 +37,11 @@ A rendszer alkalmas egyszerű okosotthon-szerű funkciók demonstrálására (ri
 
 ## Feladat
 
-A Nyíregyházi Egyetem – **[BMI1504L] – IoT alapok (2025. őszi félév)** elnevezésű tantárgy
-követelményeként egy automatizált rendszer megvalósítása.
-
 A projekt megvalósítói:  
 
-- *Név 1*  
-- *Név 2*  
-- *Név 3*  
+- Kulcsár Béla 
+- Orosz Richárd 
+- Kocserha Patrik
 
 ### Követelmények
 
@@ -68,10 +65,6 @@ A projekt fejlesztése során (opcionálisan) használható volt online szimulá
 ahol az ESP32 és a kapcsolt perifériák működése előzetesen tesztelhető.  
 A fizikai megvalósítás a szimuláció után egy breadboardon történt, valódi ESP32 fejlesztőpanellel.
 
-*(Ha készült szimuláció, ide beteheted a linket.)*  
-`[WOKWI szimuláció link]()`  
-
----
 
 ### Fizikai eszközök
 
@@ -122,8 +115,6 @@ A projekt kivitelezéséhez a következő eszközök kerültek felhasználásra:
 - A rendszer központi eleme az **ESP32 fejlesztőpanel**, amelyet egy **microUSB kábellel** látunk el 5 V tápfeszültséggel.  
 - A szükséges 3,3 V-os és GND vonalakat az ESP32 panel biztosítja a breadboard felé.  
 - Minden szenzor és modul a breadboard pozitív (+3,3 V vagy 5 V) és negatív (GND) sínjére van kötve.
-
-*(Pontosan megadhatod, hogy melyik modul 3,3 V-ot vagy 5 V-ot kap, ha ezt rögzítettétek.)*
 
 ---
 
@@ -233,9 +224,33 @@ A rendszer logikáját az alábbi folyamatábra szemlélteti:
    - LED-ek és buzzer vezérlése az aktuális üzemmód szerint  
 3. Visszatérés a fő ciklus elejére
 
-*Ide tehetsz be egy képet a tényleges folyamatábráról:*  
+Folyamatábra: 
 
-`![Folyamatábra](pics/flowchart.png)`
+flowchart TD
+    A[Indítás / Reset] --> B[Hardver inicializálása<br>ESP32, LCD, DHT11, PIR, IR vevő, LED-ek, buzzer]
+    B --> C[Fő ciklus indul]
+
+    C --> D[DHT11 adatainak beolvasása<br>hőmérséklet, páratartalom]
+    D --> E[PIR szenzor állapotának beolvasása]
+    E --> F[IR vevő ellenőrzése<br>érkezett új jel?]
+
+    F -->|Igen| G[IR kód feldolgozása<br>üzemmód változtatása<br>(pl. riasztó be/ki, némítás)]
+    F -->|Nem| H[Üzemmód változatlan]
+
+    G --> H
+
+    H --> I[Riasztó engedélyezve?]
+    I -->|Nem| K[Normál állapot<br>zöld LED világít<br>buzzer kikapcsolva]
+    I -->|Igen| J[Mozgás érzékelve a PIR szenzoron?]
+
+    J -->|Igen| L[RIASZTÁS állapot<br>piros LED (villog)<br>buzzer bekapcsolva<br>LCD: riasztás üzenet]
+    J -->|Nem| K
+
+    K --> M[LCD frissítése<br>hőmérséklet, páratartalom,<br>aktuális állapot szövege]
+    L --> M
+
+    M --> C[Újra a fő ciklus elejére]
+
 
 ---
 
