@@ -9,7 +9,7 @@ A projekt célja egy ESP32 mikrokontrollerrel vezérelt, önműködő IoT rendsz
 A rendszer alkalmas egyszerű okosotthon-szerű funkciók demonstrálására (riasztás, állapotjelzés, környezetfigyelés).
 
 *Itt lehet egy kép a kész eszközről:*  
-`![IoT állomás](circuit_image (1).png)`
+`![IoT](circuit_image (1).png)`
 
 ---
 
