@@ -231,9 +231,38 @@ Folyamatábra:
 ### A működés folyamatábrája
 ```mermaid
 flowchart TD
-    A[Inditas] --> B[setup]
-    B --> C[loop]
+    A[Inditas] --> B[setup - inicializalas]
+    B --> C[WiFi es ido beallitasa]
+    C --> D[showMenu - alap menu]
+    D --> E[[loop - fo ciklus]]
+
+    E --> F[handleIR - taviranyito]
+    F --> G{Ervenyes IR kod?}
+    G -->|nem| H1[IR: nincs esemeny]
+    G -->|igen| H2[Menu vagy debug mod valtas, LCD, buzzer]
+    
+    H1 --> I[handleButton - gomb]
+    H2 --> I
+
+    I --> J{Gomb lenyomva?}
+    J -->|igen| K[Menu leptetese, showMenuFunction]
+    J -->|nem| L[Nincs gomb esemeny]
+
+    K --> M[handleDHT]
+    L --> M
+
+    M --> N{Eltelt 2 masodperc?}
+    N -->|igen| O[DHT olvasas, utolso ertekek frissitese]
+    N -->|nem| P[Ertekek valtozatlanok]
+
+    O --> Q[handlePIR]
+    P --> Q
+
+    Q --> R[PIR allapot es LED-ek frissitese]
+    R --> S[handleScroll - LCD szoveg gorgetese]
+    S --> E
 ```
+
 
 
 ---
