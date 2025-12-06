@@ -230,8 +230,7 @@ Folyamatábra:
 
 ### A működés folyamatábrája
 
-flowchart TD
-    A([Indítás / reset]) --> B[setup()]
+
     ```mermaid
 flowchart TD
     A([Indítás / reset]) --> B[setup()]
