@@ -229,42 +229,11 @@ A rendszer logikáját az alábbi folyamatábra szemlélteti:
 Folyamatábra: 
 
 ### A működés folyamatábrája
-
 ```mermaid
 flowchart TD
-    A([Indítás / reset]) --> B[setup()]
-    B --> C[Hardver inicializálás<br>LCD, DHT11, PIR, IR, gomb, LED-ek, buzzer]
-    C --> D[WiFi és idő beállítása<br>connectWiFiAndTime()]
-    D --> E[showMenu()<br>alap menü kiírása]
-    E --> F[[loop() – fő ciklus]]
-
-    F --> G[handleIR()]
-    G --> H{Érvényes<br>IR kód?}
-    H -->|Nem| I[IR: nincs érdemi esemény]
-    H -->|Igen| J[Menü / debug mód<br>állítása, LCD frissítés,<br>buzzer jelzés]
-
-    I --> K[handleButton()]
-    K --> L{Gomb<br>lenyomva?}
-    L -->|Igen| M[Menü léptetése<br>currentMenu változik,<br>showMenuFunction(), buzzer]
-    L -->|Nem| N[Button: nincs esemény]
-
-    J --> O
-    M --> O
-    N --> O[handleDHT()]
-    O --> P{Eltelt<br>2 másodperc?}
-    P -->|Nem| Q
-    P -->|Igen| R[DHT11 olvasás<br>lastH, lastT, lastHI frissítése]
-
-    Q --> S
-    R --> S[handlePIR()]
-
-    S --> T[PIR állapot olvasása<br>pirActive frissítése,<br>LED_ACT / LED_NACT állítása]
-    T --> U[handleScroll()]
-    U --> V[Ha scrollingActive igaz<br>szöveg görgetése az LCD-n]
-    V --> F
+    A[Inditas] --> B[setup]
+    B --> C[loop]
 ```
-
-
 
 
 ---
