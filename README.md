@@ -11,6 +11,7 @@ A rendszer alkalmas egyszerű okosotthon-szerű funkciók demonstrálására (ri
 *Itt lehet egy kép a kész eszközről:*  
 ![IoT](pics/circuit_image (1).png)
 
+
 ---
 
 ## Tartalom
