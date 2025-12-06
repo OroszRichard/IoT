@@ -16,22 +16,24 @@ Megvalósítási terv:
 
 ## Tartalom
 
-- ESP32 alapú IoT környezetfigyelő és jelenlétérzékelő állomás  
-  - Tartalom  
-  - Feladat  
-    - Követelmények  
-  - Megvalósítás  
-    - Szimulációs környezet  
-    - Fizikai eszközök  
-      - Bill of Materials (BOM)  
-      - Áramellátás  
-      - Szenzorok  
-      - Kijelző és kezelőfelület  
-      - Jelzőeszközök  
-    - Programozás  
-      - A kód  
-      - A működés rövid leírása  
-      - A működés folyamatábrája  
+- [ESP32 alapú IoT környezetfigyelő és jelenlétérzékelő állomás](#esp32-alapú-iot-környezetfigyelő-és-jelenlétérzékelő-állomás)
+  - [Tartalom](#tartalom)
+  - [Feladat](#feladat)
+    - [Követelmények](#követelmények)
+  - [Megvalósítás](#megvalósítás)
+    - [Szimulációs környezet](#szimulációs-környezet)
+    - [Fizikai eszközök](#fizikai-eszközök)
+      - [Bill of Materials (BOM / Anyagjegyzék)](#bill-of-materials-bom-anyagjegyzék)
+      - [Áramellátás](#áramellátás)
+      - [Szenzorok](#szenzorok)
+      - [Kijelző és kezelőfelület](#kijelző-és-kezelőfelület)
+      - [Jelzőeszközök](#jelzőeszközök)
+  - [Programozás](#programozás)
+    - [A kód](#a-kód)
+    - [A működés rövid leírása](#a-működés-rövid-leírása)
+    - [A működés folyamatábrája](#a-működés-folyamatábrája)
+- [About](#about)
+
 
 ---
 
