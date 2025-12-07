@@ -1,6 +1,6 @@
-# ESP32 alapú IoT környezetfigyelő / bébiőr állomás (LCD + MQTT)
+# ESP32 alapú IoT környezetfigyelő (LCD + MQTT)
 
-A projekt célja egy ESP32 mikrokontrollerre épülő **környezetfigyelő / bébiőr prototípus** megvalósítása, amely:
+A projekt célja egy ESP32 mikrokontrollerre épülő **környezetfigyelő** megvalósítása, amely:
 
 - méri a **hőmérsékletet, páratartalmat és hőérzetet** (DHT11),
 - figyeli a **fényviszonyokat** (LDR fényérzékelő),
@@ -14,7 +14,7 @@ A projekt célja egy ESP32 mikrokontrollerre épülő **környezetfigyelő / bé
 
 ## Tartalom
 
-- [ESP32 alapú IoT környezetfigyelő / bébiőr állomás (LCD + MQTT)](#esp32-alapú-iot-környezetfigyelő--bébiőr-állomás-lcd--mqtt)
+- [ESP32 alapú IoT környezetfigyelő (LCD + MQTT)](#esp32-alapú-iot-környezetfigyelő--lcd--mqtt)
   - [Tartalom](#tartalom)
   - [Feladat](#feladat)
     - [Készítők](#készítők)
@@ -38,32 +38,40 @@ A projekt célja egy ESP32 mikrokontrollerre épülő **környezetfigyelő / bé
 
 ## Feladat
 
-A Nyíregyházi Egyetem **IoT alapok** tantárgyában a feladat egy olyan **IoT mérőállomás** megtervezése és megvalósítása volt, amely:
+A Nyíregyházi Egyetem **IoT alapok** tantárgyában a feladat egy **IoT eszköz** megtervezése és megvalósítása volt.
 
+Elgondolásunk alapján a mi eszközünk:
 - különböző szenzorokkal adatot gyűjt a környezetről,
 - a mért értékeket lokálisan kijelzi,
 - a mért adatokat **hálózaton keresztül továbbítja** egy MQTT broker felé.
 
 ### Készítők
 
-- *Név 1*
-- *Név 2*
-- *Név 3*
+- **Kulcsár Béla**
+- **Orosz Richárd**
+- **Kocserha Patrik**
 
-*(A tényleges beadandóban kitöltendő.)*
 
 ### Követelmények
 
 A projektnek tartalmaznia kellett:
-
+**Eszközöket (esetünket):**
 - egy **mikrokontroller-platformot** (ESP32),
 - többféle **szenzort** (hőmérséklet, páratartalom, fény, mozgás),
 - **kijelzőt** (16×2 LCD),
 - **aktuátort** (buzzer),
 - **felhasználói kezelőfelületet** (gombok, menü),
 - **WiFi kapcsolatot**,
-- **MQTT alapú adatküldést** (JSON formátum),
-- rövid, strukturált **dokumentációt** (README.md).
+- **MQTT alapú adatküldést** (JSON formátum)
+  
+**Dokumentációt:**
+- **leírás**(README.md).
+- **eszközlista** (BOM)
+- **bekötésirajz**
+- **bekötéshez lábkiosztás**
+- **képek a működésről**
+- **forráskód** (megjegyzésekkel)
+- **specifikáció** (feladatleírás,cél,lépések)
 
 ---
 
