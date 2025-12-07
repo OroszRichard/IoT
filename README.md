@@ -190,6 +190,15 @@ A buzzer:
 ---
 ## Szoftveres környezet
 Ha megtörtént az eszközök beszerzése és a mellékeletek szerinti összekötés, akkor ezt követően szükséges a szoftveres kivitelezést az Arduino IDE-vel tudjuk megvalósítani.
+- **Arduino IDE 2.3.6** telepítését követően, szükséges további lépések megtétele:
+    -File->Preferences->Additional boards manager URLs-ba beillesztjük:**https://dl.espressif.com/dl/package_esp32_index.json**
+-Boards manager-ből telepítjük az: **"esp32 by Espressif Systems" 3.3.4.**
+-Library manager-ből telepítjük: **Adafruit Unified Sensor, DHT sensor library, LiquidCrystal**
+
+Ezt követően csatlakoztathatjuk az eszközt adatátvitelre alkalmas MicroUSB kábellal a gépünkhőz, amennyiben eszközkezelőben nem jelenik meg a COM-port, úgy telepíteni kell a:
+
+CP210x USB to UART Bridge VCP Drivers, a www.silabs.com -ról.
+
 ---
 
 ## Programozás
