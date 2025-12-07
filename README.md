@@ -90,7 +90,7 @@ A projektnek tartalmaznia kellett:
 | 2  | 16×2 LCD kijelző                   | HD44780 kompatibilis, párhuzamos          | 5 V           | 1 db      |<img src="Eszközök/LCD 16x2.png" alt="IoT" width="80"> |
 | 3  | DHT11 szenzor                      | Hőmérséklet + páratartalom                | 3,3–5 V (3,3 V-ról használva) | 1 db |<img src="Eszközök/DHT11.png" alt="IoT" width="80"> |
 | 4  | PIR mozgásérzékelő modul           | Digitális kimenet                         | 5 V táp, 3,3 V kompatibilis kimenet | 1 db |<img src="Eszközök/PIR.png" alt="IoT" width="80"> |
-| 5  | Fényérzékelő (LDR + R osztó / modul)| Analóg kimenet (ADC-re)                  | 3,3 V         | 1 db      |<img src="Eszközök/LDR.png" alt="IoT" width="60"> |
+| 5  | Fényérzékelő (LDR + R osztó / modul)| Analóg kimenet (ADC-re)                  | 3,3 V         | 1 db      |<img src="Eszközök/LDR.png" alt="IoT" width="60" height="80"> |
 | 6  | Buzzer                             | Aktív/passzív hangjelző                   | 3,3 V         | 1 db      |<img src="Eszközök/Buzzer.png" alt="IoT" width="80"> |
 | 7  | Nyomógomb                          | Momentary push button                     | 3,3 V logika (pullup-pal) | 2 db |<img src="Eszközök/Button.png" alt="IoT" width="80"> |
 | 8  | Ellenállások                       | LDR osztóhoz, gombokhoz                   | 3,3 V szint   | 1 db      |<img src="Eszközök/10k.png" alt="IoT" width="80"> |
