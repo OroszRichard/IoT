@@ -28,7 +28,7 @@ A projekt célja egy ESP32 mikrokontrollerre épülő **környezetfigyelő** meg
       - [Szenzorok és bekötésük](#szenzorok-és-bekötésük)
       - [Kijelző és kezelőfelület](#kijelző-és-kezelőfelület)
       - [Jelzőeszközök](#jelzőeszközök)
-  - [Szoftveres környezet](#szoftver)
+  - [Szoftveres környezet](#szoftveres-környezet)
       - [Programozás](#programozás)
   - [Főbb funkcionális modulok](#főbb-funkcionális-modulok)
       - [Menürendszer és gombkezelés](#menürendszer-és-gombkezelés)
