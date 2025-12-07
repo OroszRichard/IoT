@@ -8,7 +8,7 @@ A projekt célja egy ESP32 mikrokontrollerre épülő **környezetfigyelő** meg
 - az adatokat **16×2 karakteres LCD-n** jeleníti meg több menüben,
 - két gombbal vezérelhető (főmenü + alternatív nézet),
 - rövid **hangjelzést** ad visszacsatolásként (buzzer),
-- a mért adatokat **TLS-sel védett MQTT kapcsolat** segítségével egy felhőalapú brokerre küldi.
+- a mért adatok MQTT felhőbe kerülnek
   
 - Az elkészült eszköz egy ESP32-alapú IoT környezetfigyelő állomás, amely alkalmas zárt helyiségek alapvető környezeti paramétereinek folyamatos megfigyelésére. Méri a hőmérsékletet, páratartalmat, a fényerősséget és a mozgást, az aktuális értékeket pedig egy 16×2 karakteres LCD kijelzőn jeleníti meg többféle menüben. A beépített WiFi és MQTT kapcsolatnak köszönhetően az adatok nemcsak helyben olvashatók, hanem távolról, felhőn keresztül is nyomon követhetők, így a rendszer jól használható például szobák, irodák, raktárak vagy akár egy egyszerű „bébiőr” jellegű megfigyelőrendszer alapjaként is.
 ---
@@ -84,7 +84,7 @@ A projektnek tartalmaznia kellett:
 
 | #  | Megnevezés                         | Típus / leírás                            | Tápfeszültség | Mennyiség |Kép|
 |----|------------------------------------|-------------------------------------------|--------------:|-----------|---|
-| 1  | ESP32 fejlesztőpanel               | ESP-WROOM-32 DevKit (USB-s)              | 5 V (USB) / 3,3 V logika | 1 db |<img src="Eszközök/ESP32.png" alt="IoT" width="80"> |
+| 1  | ESP32 fejlesztőpanel               |NodeMCU-ESP32S         | 5 V (USB) / 3,3 V logika | 1 db |<img src="Eszközök/ESP32.png" alt="IoT" width="80"> |
 | 2  | 16×2 LCD kijelző                   | HD44780 kompatibilis, párhuzamos          | 5 V           | 1 db      |<img src="Eszközök/LCD 16x2.png" alt="IoT" width="80"> |
 | 3  | DHT11 szenzor                      | Hőmérséklet + páratartalom                | 3,3–5 V (3,3 V-ról használva) | 1 db |<img src="Eszközök/DHT11.png" alt="IoT" width="80"> |
 | 4  | PIR mozgásérzékelő modul           | Digitális kimenet                         | 5 V táp, 3,3 V kompatibilis kimenet | 1 db |<img src="Eszközök/PIR.png" alt="IoT" width="80"> |
@@ -96,7 +96,7 @@ A projektnek tartalmaznia kellett:
 | 10  | male-male kábelek         | Próbaáramkörhöz                           | —             | n db      |<img src="Eszközök/male-male kábel.png" alt="IoT" width="80"> |
 | 11  | female-male kábelek         | Próbaáramkörhöz                           | —             | n db      |<img src="Eszközök/female-male kábel.png" alt="IoT" width="80"> |
 | 12 | microUSB kábel / 5 V adapter       | ESP32 tápellátás                          | 5 V           | 1 db      |<img src="Eszközök/MicroUSB kábel.png" alt="IoT" width="80"> |
-| 13 | Potencióméter       | kijelző fényerő állítás                         | 5 V           | 1 db      |<img src="Eszközök/Potentiometer.png" alt="IoT" width="80"> |
+| 13 | Potencióméter       | kontraszt állítás                         | 5 V           | 1 db      |<img src="Eszközök/Potentiometer.png" alt="IoT" width="80"> |
 
 ---
 
