@@ -31,10 +31,10 @@ A projekt célja egy ESP32 mikrokontrollerre épülő **környezetfigyelő** meg
       - [Jelzőeszközök](#jelzőeszközök)
   - [Szoftveres környezet](#szoftver)
       - [Programozás](#programozás)
-      - [Főbb funkcionális modulok](#főbb-funkcionális-modulok)
+  - [Főbb funkcionális modulok](#főbb-funkcionális-modulok)
       - [Menürendszer és gombkezelés](#menürendszer-és-gombkezelés)
       - [MQTT adatmodell](#mqtt-adatmodell)
-    - [A működés rövid leírása](#a-működés-rövid-leírása)
+  - [A működés rövid leírása](#a-működés-rövid-leírása)
   - [Továbbfejlesztési lehetőség – bébiőr mód](#továbbfejlesztési-lehetőség--bébiőr-mód)
   - [About](#about)
 
