@@ -187,6 +187,8 @@ A buzzer:
 - később riasztási funkciókra (pl. bébiőr mód) is felhasználható.
 
 ---
+Ha megtörtént az eszközök beszerzése és a mellékeletek szerinti összekötés, akkor ezt követően szükséges a szoftveres kivitelezést az Arduino IDE-vel tudjuk megvalósítani.
+---
 
 ## Programozás
 
