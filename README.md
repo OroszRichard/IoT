@@ -11,8 +11,8 @@ A projekt célja egy ESP32 mikrokontrollerre épülő **környezetfigyelő** meg
 - a mért adatokat **TLS-sel védett MQTT kapcsolat** segítségével egy felhőalapú brokerre küldi.
 
 ---
-![IoT](Kész%20eszköz/eszköz.jpg)
-<img src="Kész eszköz/eszköz.jpg" alt="IoT" width="400">
+
+<img src="Kész eszköz/eszköz.jpg" alt="IoT" width="400" style="transform: rotate(-90deg);">
 
 
 ## Tartalom
