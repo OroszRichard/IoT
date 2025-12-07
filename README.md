@@ -296,8 +296,8 @@ const char* mqtt_password = "Nyiregyhaziegyetem1";
 const char* mqtt_topic    = "esp32/28562F4A74A8";
 WiFiClientSecure espClient;
 PubSubClient mqttClient(espClient);
-
-# Tehát:
+```cpp
+## Tehát:
 
 Broker címe: 86a4864e38404fa0ac3975d7ee622fb3.s1.eu.hivemq.cloud
 Port: 8883 (TLS-es, titkosított MQTT)
