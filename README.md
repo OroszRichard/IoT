@@ -286,7 +286,7 @@ A kijelzőn 5 fő menü jelenik meg, a `currentMenu` változó szerint:
 
 ### MQTT adatmodell
 
-A broker eléréséhez a kódban beállított paraméterek:
+- A broker eléréséhez a kódban beállított paraméterek:
 
 ```cpp
 const char* mqtt_broker   = "86a4864e38404fa0ac3975d7ee622fb3.s1.eu.hivemq.cloud";
@@ -297,7 +297,7 @@ const char* mqtt_topic    = "esp32/28562F4A74A8";
 WiFiClientSecure espClient;
 PubSubClient mqttClient(espClient);
 
-Tehát:
+- Tehát:
 
 Broker címe: 86a4864e38404fa0ac3975d7ee622fb3.s1.eu.hivemq.cloud
 Port: 8883 (TLS-es, titkosított MQTT)
@@ -305,23 +305,11 @@ Felhasználó: 28562F4A74A8
 Jelszó: Nyiregyhaziegyetem1
 Topic: esp32/28562F4A74A8
 
-WiFi + MQTT inicializálás:
-
-Tehát:
-
-Broker címe: 86a4864e38404fa0ac3975d7ee622fb3.s1.eu.hivemq.cloud
-Port: 8883 (TLS-es, titkosított MQTT)
-Felhasználó: 28562F4A74A8
-Jelszó: Nyiregyhaziegyetem1
-Topic: esp32/28562F4A74A8
-
-WiFi + MQTT inicializálás:
-
- A setup()-ban:
+- WiFi + MQTT inicializálás:
+- A setup()-ban:
 ```cpp
 WiFi.mode(WIFI_STA);
 init_wifi();
 init_mqtt();
 }
-# Az ESP32 felmegy a WiFi-re (ssid / password).
-Beállítja az MQTT klienst, hogy TLS-es kapcsolattal kommunikáljon a HiveMQ Cloud brokerrel.
+
