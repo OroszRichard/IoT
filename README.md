@@ -110,19 +110,15 @@ A projektnek tartalmaznia kellett:
   - DHT11 VCC,
   - fényérzékelő (LDR osztó/modul),
   - buzzer,
-  - gombok pull-up referencia.
-- Az LCD kijelző **5 V-ról üzemel**, GND közös az ESP32-vel.
-  - A HD44780 kompatibilis vezérlő 3,3 V-os logikai HIGH szinttel is megbízhatóan vezérelhető.
-- A PIR modul tipikusan **5 V tápot kap**, kimenete 3,3 V körüli logikai szintet ad, amely közvetlenül köthető az ESP32 GPIO26 lábára.  
-  *(Konkrét modultól függően a kimenet 3,3 V kompatibilitását érdemes adatlapból ellenőrizni.)*
-- Minden eszköz **közös GND-re** csatlakozik (ESP32 GND – breadboard GND sín).
-
+  - gombok pull-up referencia,
+  - PIR szenzor
+- Az LCD kijelző **5 V-ról üzemel**.
 ---
 
 #### Szenzorok és bekötésük
 
-<img src="Bekötési rajz.png" alt="IoT" width="400" style="transform: rotate(-90deg);">
-<img src="Lábkiosztás.png" alt="IoT" width="400" style="transform: rotate(-90deg);">
+<img src="Bekötési rajz.png" alt="IoT" width="600" style="transform: rotate(-90deg);">
+<img src="Lábkiosztás.png" alt="IoT" width="600" style="transform: rotate(-90deg);">
 
 **DHT11 (hőmérséklet + páratartalom)**
 
