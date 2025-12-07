@@ -94,7 +94,7 @@ A projektnek tartalmaznia kellett:
 | 6  | Buzzer                             | Aktív/passzív hangjelző                   | 3,3 V         | 1 db      |<img src="Eszközök/Buzzer.png" alt="IoT" width="80"> |
 | 7  | Nyomógomb                          | Momentary push button                     | 3,3 V logika (pullup-pal) | 2 db |<img src="Eszközök/Button.png" alt="IoT" width="80"> |
 | 8  | Ellenállások                       | LDR osztóhoz, gombokhoz                   | 3,3 V szint   | 1 db      |<img src="Eszközök/10k.png" alt="IoT" width="80"> |
-| 9  | Breadboard                          | Próbaáramkörhöz                           | —             | 1 db      |<img src="Eszközök/Breadboard.png" alt="IoT" width="80"> |
+| 9  | Breadboard                          | Próbaáramkörhöz                           | —             | 1 db      |<img src="Eszközök/Breadboard.jpg" alt="IoT" width="80"> |
 | 10  | male-male kábelek         | Próbaáramkörhöz                           | —             | n db      |<img src="Eszközök/male-male kábel.png" alt="IoT" width="80"> |
 | 11  | female-male kábelek         | Próbaáramkörhöz                           | —             | n db      |<img src="Eszközök/female-male kábel.png" alt="IoT" width="80"> |
 | 12 | microUSB kábel / 5 V adapter       | ESP32 tápellátás                          | 5 V           | 1 db      |<img src="Eszközök/MicroUSB kábel.png" alt="IoT" width="80"> |
