@@ -84,9 +84,9 @@ A projektnek tartalmaznia kellett:
 
 #### Bill of Materials (BOM)
 
-| #  | Megnevezés                         | Típus / leírás                            | Tápfeszültség | Mennyiség |
-|----|------------------------------------|-------------------------------------------|--------------:|-----------|
-| 1  | ESP32 fejlesztőpanel               | ESP-WROOM-32 DevKit (USB-s)              | 5 V (USB) / 3,3 V logika | 1 db |
+| #  | Megnevezés                         | Típus / leírás                            | Tápfeszültség | Mennyiség |Kép|
+|----|------------------------------------|-------------------------------------------|--------------:|-----------|---|
+| 1  | ESP32 fejlesztőpanel               | ESP-WROOM-32 DevKit (USB-s)              | 5 V (USB) / 3,3 V logika | 1 db |<img src="Eszközök/ESP32.png" alt="IoT" width="80"> |
 | 2  | 16×2 LCD kijelző                   | HD44780 kompatibilis, párhuzamos          | 5 V           | 1 db      |
 | 3  | DHT11 szenzor                      | Hőmérséklet + páratartalom                | 3,3–5 V (3,3 V-ról használva) | 1 db |
 | 4  | PIR mozgásérzékelő modul           | Digitális kimenet                         | 5 V táp, 3,3 V kompatibilis kimenet | 1 db |
