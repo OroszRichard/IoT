@@ -202,9 +202,9 @@ CP210x USB to UART Bridge VCP Drivers, a www.silabs.com -ról.
 ---
 
 ## Programozás
+A teljes programkód itt érhető el:
 
-A kód **Arduino keretrendszerben** készült ESP32-höz.  
-Fő forrásfájl: pl. `src/main.cpp` vagy `beadando.ino` (a repo struktúrájától függően).
+[sketch_dec3a.ino](sketch_dec3a.ino)
 
 ### Főbb funkcionális modulok
 
