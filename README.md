@@ -100,8 +100,6 @@ A projektnek tartalmaznia kellett:
 | 12 | microUSB kábel / 5 V adapter       | ESP32 tápellátás                          | 5 V           | 1 db      |<img src="Eszközök/MicroUSB kábel.png" alt="IoT" width="80"> |
 | 13 | Potencióméter       | kijelző fényerő állítás                         | 5 V           | 1 db      |<img src="Eszközök/Potentiometer.png" alt="IoT" width="80"> |
 
-> **Megjegyzés:** az ESP32 **3,3 V logikai szintekkel** dolgozik, így minden digitális jel (DHT, PIR kimenet, gombok, LCD adat/vezérlő) 3,3 V kompatibilis szintre van kötve.
-
 ---
 
 #### Áramellátás és tápfeszültségek
@@ -122,6 +120,9 @@ A projektnek tartalmaznia kellett:
 ---
 
 #### Szenzorok és bekötésük
+
+<img src="Bekötési rajz.png" alt="IoT" width="400" style="transform: rotate(-90deg);">
+<img src="Lábkiosztás.png" alt="IoT" width="400" style="transform: rotate(-90deg);">
 
 **DHT11 (hőmérséklet + páratartalom)**
 
