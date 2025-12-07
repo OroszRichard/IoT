@@ -12,6 +12,9 @@ A projekt célja egy ESP32 mikrokontrollerre épülő **környezetfigyelő** meg
 
 ---
 ![IoT](Kész%20eszköz/eszköz.jpg)
+<img src="Kész eszköz/eszköz.jpg" alt="IoT" width="400">
+
+
 ## Tartalom
 
 - [ESP32 alapú IoT környezetfigyelő (LCD + MQTT)](#esp32-alapú-iot-környezetfigyelő--lcd--mqtt)
