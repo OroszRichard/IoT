@@ -55,7 +55,7 @@ Elgondolásunk alapján a mi eszközünk:
 ### Követelmények
 
 A projektnek tartalmaznia kellett:
-**Eszközöket (esetünket):**
+**Eszközöket (esetünkben):**
 - egy **mikrokontroller-platformot** (ESP32),
 - többféle **szenzort** (hőmérséklet, páratartalom, fény, mozgás),
 - **kijelzőt** (16×2 LCD),
