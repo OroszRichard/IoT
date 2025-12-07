@@ -305,3 +305,24 @@ Felhasználó: 28562F4A74A8
 Jelszó: Nyiregyhaziegyetem1
 Topic: esp32/28562F4A74A8
 Kliensazonosító: "ESP32_28562F4A74A8" (a mqtt_reconnect()-ben)
+---
+WiFi + MQTT inicializálás
+```cpp
+void init_wifi() {
+  WiFi.begin(ssid, password);
+  ...
+}
+
+void init_mqtt() {
+  espClient.setInsecure();                 // nem ellenőrzi a certet
+  mqttClient.setServer(mqtt_broker, mqtt_port);
+}
+---
+A setup()-ban:
+```cpp
+WiFi.mode(WIFI_STA);
+init_wifi();
+init_mqtt();
+---
+Az ESP32 felmegy a WiFi-re (ssid / password).
+Beállítja az MQTT klienst, hogy TLS-es kapcsolattal kommunikáljon a HiveMQ Cloud brokerrel.
