@@ -187,7 +187,7 @@ A buzzer:
 - később riasztási funkciókra (pl. bébiőr mód) is felhasználható.
 
 ---
-## Szoftveres környezet
+### Szoftveres környezet
 Ha megtörtént az eszközök beszerzése és a mellékeletek szerinti összekötés, akkor ezt követően szükséges a szoftveres kivitelezést az Arduino IDE-vel tudjuk megvalósítani.
 - **Arduino IDE 2.3.6** telepítését követően, szükséges további lépések megtétele:
     - File->Preferences->Additional boards manager URLs-ba beillesztjük:**https://dl.espressif.com/dl/package_esp32_index.json**
