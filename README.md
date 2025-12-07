@@ -87,15 +87,18 @@ A projektnek tartalmaznia kellett:
 | #  | Megnevezés                         | Típus / leírás                            | Tápfeszültség | Mennyiség |Kép|
 |----|------------------------------------|-------------------------------------------|--------------:|-----------|---|
 | 1  | ESP32 fejlesztőpanel               | ESP-WROOM-32 DevKit (USB-s)              | 5 V (USB) / 3,3 V logika | 1 db |<img src="Eszközök/ESP32.png" alt="IoT" width="80"> |
-| 2  | 16×2 LCD kijelző                   | HD44780 kompatibilis, párhuzamos          | 5 V           | 1 db      |
-| 3  | DHT11 szenzor                      | Hőmérséklet + páratartalom                | 3,3–5 V (3,3 V-ról használva) | 1 db |
-| 4  | PIR mozgásérzékelő modul           | Digitális kimenet                         | 5 V táp, 3,3 V kompatibilis kimenet | 1 db |
-| 5  | Fényérzékelő (LDR + R osztó / modul)| Analóg kimenet (ADC-re)                  | 3,3 V         | 1 db      |
-| 6  | Buzzer                             | Aktív/passzív hangjelző                   | 3,3 V         | 1 db      |
-| 7  | Nyomógomb                          | Momentary push button                     | 3,3 V logika (pullup-pal) | 2 db |
-| 8  | Ellenállások                       | LDR osztóhoz, gombokhoz                   | 3,3 V szint   | n db      |
-| 9  | Breadboard, jumper kábelek         | Próbaáramkörhöz                           | —             | n db      |
-| 10 | microUSB kábel / 5 V adapter       | ESP32 tápellátás                          | 5 V           | 1 db      |
+| 2  | 16×2 LCD kijelző                   | HD44780 kompatibilis, párhuzamos          | 5 V           | 1 db      |<img src="Eszközök/LCD 16x2.png" alt="IoT" width="80"> |
+| 3  | DHT11 szenzor                      | Hőmérséklet + páratartalom                | 3,3–5 V (3,3 V-ról használva) | 1 db |<img src="Eszközök/DHT11.png" alt="IoT" width="80"> |
+| 4  | PIR mozgásérzékelő modul           | Digitális kimenet                         | 5 V táp, 3,3 V kompatibilis kimenet | 1 db |<img src="Eszközök/PIR.png" alt="IoT" width="80"> |
+| 5  | Fényérzékelő (LDR + R osztó / modul)| Analóg kimenet (ADC-re)                  | 3,3 V         | 1 db      |<img src="Eszközök/LDR.png" alt="IoT" width="80"> |
+| 6  | Buzzer                             | Aktív/passzív hangjelző                   | 3,3 V         | 1 db      |<img src="Eszközök/Buzzer.png" alt="IoT" width="80"> |
+| 7  | Nyomógomb                          | Momentary push button                     | 3,3 V logika (pullup-pal) | 2 db |<img src="Eszközök/Button.png" alt="IoT" width="80"> |
+| 8  | Ellenállások                       | LDR osztóhoz, gombokhoz                   | 3,3 V szint   | 1 db      |<img src="Eszközök/10k.png" alt="IoT" width="80"> |
+| 9  | Breadboard                          | Próbaáramkörhöz                           | —             | 1 db      |<img src="Eszközök/Breadboard.png" alt="IoT" width="80"> |
+| 10  | male-male kábelek         | Próbaáramkörhöz                           | —             | n db      |<img src="Eszközök/male-male kábel.png" alt="IoT" width="80"> |
+| 11  | female-male kábelek         | Próbaáramkörhöz                           | —             | n db      |<img src="Eszközök/female-male kábel.png" alt="IoT" width="80"> |
+| 12 | microUSB kábel / 5 V adapter       | ESP32 tápellátás                          | 5 V           | 1 db      |<img src="Eszközök/MicroUSB kábel.png" alt="IoT" width="80"> |
+| 13 | Potencióméter       | kijelző fényerő állítás                         | 5 V           | 1 db      |<img src="Eszközök/Potentiometer.png" alt="IoT" width="80"> |
 
 > **Megjegyzés:** az ESP32 **3,3 V logikai szintekkel** dolgozik, így minden digitális jel (DHT, PIR kimenet, gombok, LCD adat/vezérlő) 3,3 V kompatibilis szintre van kötve.
 
