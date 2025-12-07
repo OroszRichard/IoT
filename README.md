@@ -317,4 +317,4 @@ init_mqtt();
 - Beállítja az MQTT klienst, hogy TLS-es kapcsolattal kommunikáljon a HiveMQ Cloud brokerrel.
 - 2 percenként küldi a JSON-t
 - MQTT Eplorerrel lehet csatlakozni hozzá, a megadott belépési adatokkal.
-<img src="MQTT.png" alt="IoT" width="400">
+<img src="MQTT.png" alt="IoT" width="1000">
