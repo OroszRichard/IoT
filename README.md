@@ -235,7 +235,7 @@ A teljes programkód itt érhető el:
 
 ### Menürendszer és gombkezelés
 
-A kijelzőn 4 fő menü jelenik meg, a `currentMenu` változó szerint:
+A kijelzőn 5 fő menü jelenik meg, a `currentMenu` változó szerint:
 | #  | Megnevezés                 | Kép |
 |:--:|----------------------------|:---:|
 | 1. | **DHT adatok**             | <img src="Kijelző/Kijelző1.jpg" alt="IoT" width="200"> |
