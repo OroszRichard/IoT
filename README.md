@@ -9,7 +9,8 @@ A projekt célja egy ESP32 mikrokontrollerre épülő **környezetfigyelő** meg
 - két gombbal vezérelhető (főmenü + alternatív nézet),
 - rövid **hangjelzést** ad visszacsatolásként (buzzer),
 - a mért adatokat **TLS-sel védett MQTT kapcsolat** segítségével egy felhőalapú brokerre küldi.
-
+  
+- Az elkészült eszköz egy ESP32-alapú IoT környezetfigyelő állomás, amely alkalmas zárt helyiségek alapvető környezeti paramétereinek folyamatos megfigyelésére. Méri a hőmérsékletet, páratartalmat, a fényerősséget és a mozgást, az aktuális értékeket pedig egy 16×2 karakteres LCD kijelzőn jeleníti meg többféle menüben. A beépített WiFi és MQTT kapcsolatnak köszönhetően az adatok nemcsak helyben olvashatók, hanem távolról, felhőn keresztül is nyomon követhetők, így a rendszer jól használható például szobák, irodák, raktárak vagy akár egy egyszerű „bébiőr” jellegű megfigyelőrendszer alapjaként is.
 ---
 
 <img src="Kész eszköz/eszköz.jpg" alt="IoT" width="400" style="transform: rotate(-90deg);">
