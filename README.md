@@ -237,12 +237,12 @@ A teljes programkód itt érhető el:
 
 A kijelzőn 4 fő menü jelenik meg, a `currentMenu` változó szerint:
 
-1. **DHT adatok**
-2. **Fényérzékelő**
-3. **Mozgásérzékelő (PIR)**
-4. **ESP hálózati adatok / uptime**
+|1. | **DHT adatok** |<img src="Kijelző/Kijelző1.jpg" alt="IoT" width="100"> |
+|2. |  **Fényérzékelő** |<img src="Kijelző/Kijelző3.jpg" alt="IoT" width="100"> |
+|3. |  **Mozgásérzékelő (PIR)** |<img src="Kijelző/Kijelző2.jpg" alt="IoT" width="100"> |
+|4. |**ESP hálózati adatok** |<img src="Kijelző/Kijelző6.jpg" alt="IoT" width="100"> |
+|5. |  **uptime** |<img src="Kijelző/Kijelző8.jpg" alt="IoT" width="100"> |
 
-Az `AltMenu` logikai változó jelzi, hogy az adott menü **alapnézete** vagy **alternatív nézete** aktív.
 
 **GOMB1 (bal, PIN_BTN1 = 32)**
 
