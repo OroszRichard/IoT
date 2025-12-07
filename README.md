@@ -23,14 +23,14 @@ A projekt célja egy ESP32 mikrokontrollerre épülő **környezetfigyelő** meg
     - [Készítők](#készítők)
     - [Követelmények](#követelmények)
   - [Megvalósítás](#megvalósítás)
-    - [Fizikai eszközök](#fizikai-eszközök)
+      - [Fizikai eszközök](#fizikai-eszközök)
       - [Bill of Materials (BOM)](#bill-of-materials-bom)
       - [Áramellátás és tápfeszültségek](#áramellátás-és-tápfeszültségek)
       - [Szenzorok és bekötésük](#szenzorok-és-bekötésük)
       - [Kijelző és kezelőfelület](#kijelző-és-kezelőfelület)
       - [Jelzőeszközök](#jelzőeszközök)
   -[Szoftveres környezet](#szoftver)
-    - [Programozás](#programozás)
+      - [Programozás](#programozás)
       - [Főbb funkcionális modulok](#főbb-funkcionális-modulok)
       - [Menürendszer és gombkezelés](#menürendszer-és-gombkezelés)
       - [MQTT adatmodell](#mqtt-adatmodell)
@@ -188,7 +188,7 @@ A buzzer:
 - később riasztási funkciókra (pl. bébiőr mód) is felhasználható.
 
 ---
-##Szoftveres környezet)
+## Szoftveres környezet
 Ha megtörtént az eszközök beszerzése és a mellékeletek szerinti összekötés, akkor ezt követően szükséges a szoftveres kivitelezést az Arduino IDE-vel tudjuk megvalósítani.
 ---
 
