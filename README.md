@@ -299,11 +299,11 @@ PubSubClient mqttClient(espClient);
 ```
 Tehát:
 
-Broker címe: 86a4864e38404fa0ac3975d7ee622fb3.s1.eu.hivemq.cloud
-Port: 8883 (TLS-es, titkosított MQTT)
-Felhasználó: 28562F4A74A8
-Jelszó: Nyiregyhaziegyetem1
-Topic: esp32/28562F4A74A8
+- Broker címe: 86a4864e38404fa0ac3975d7ee622fb3.s1.eu.hivemq.cloud
+- Port: 8883 (TLS-es, titkosított MQTT)
+- Felhasználó: 28562F4A74A8
+- Jelszó: Nyiregyhaziegyetem1
+- Topic: esp32/28562F4A74A8
 
 - WiFi + MQTT inicializálás:
 - A setup()-ban:
@@ -312,4 +312,8 @@ WiFi.mode(WIFI_STA);
 init_wifi();
 init_mqtt();
 }
-
+```
+- Az ESP32 felmegy a WiFi-re (ssid / password).
+- Beállítja az MQTT klienst, hogy TLS-es kapcsolattal kommunikáljon a HiveMQ Cloud brokerrel.
+- 2 percenként küldi a JSON-t
+- MQTT Eplorerrel lehet csatlakozni hozzá, a megadott belépési adatokkal.
