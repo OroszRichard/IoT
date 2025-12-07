@@ -23,7 +23,6 @@ A projekt célja egy ESP32 mikrokontrollerre épülő **környezetfigyelő** meg
     - [Készítők](#készítők)
     - [Követelmények](#követelmények)
   - [Megvalósítás](#megvalósítás)
-      - [Fizikai eszközök](#fizikai-eszközök)
       - [Bill of Materials (BOM)](#bill-of-materials-bom)
       - [Áramellátás és tápfeszültségek](#áramellátás-és-tápfeszültségek)
       - [Szenzorok és bekötésük](#szenzorok-és-bekötésük)
