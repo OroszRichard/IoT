@@ -327,26 +327,26 @@ init_mqtt();
 ### A program működésének folyamatábrája
 
 ```mermaid
-graph TD
-    S([START / reset]) --> I[Inicializálás<br/>WiFi, MQTT, LCD, szenzorok]
-    I --> L{{loop() - fő ciklus}}
+flowchart TD
+    A([Inditas]) --> B[setup()]
+    B --> C[WiFi init]
+    C --> D[MQTT init]
+    D --> E[LCD + szenzorok init]
+    E --> F[Első showLCD()]
+    F --> G{{loop() - fő ciklus}}
 
-    %% Fő ciklus alap lépései
-    L --> DHT[handleDHT()<br/>DHT11 mérés]
-    L --> BTN[handleButtons()<br/>menü / AltMenu, buzzer]
-    L --> MQTTLOOP[mqttClient.loop()<br/>MQTT kapcsolat fenntartása]
+    G --> H[handleDHT()<br/>DHT11 mérés]
+    G --> I[handleButtons()<br/>gombok, menü]
+    G --> J[mqttClient.loop()<br/>MQTT kapcsolat]
 
-    %% 1 másodperces LCD frissítés
-    L --> LCDCHK{Eltelt 1 mp?}
-    LCDCHK -->|Igen| LCD[showLCD()<br/>kijelző frissítés]
-    LCDCHK -->|Nem| L
+    G --> K{Eltelt 1 másodperc?}
+    K -->|Igen| L[showLCD()<br/>kijelző frissítés]
+    K -->|Nem| G
 
-    %% 5 másodperces soros kiírás
-    L --> SERCHK{Eltelt 5 mp?}
-    SERCHK -->|Igen| SER[printSerialLine()<br/>értékek a Serialra]
-    SERCHK -->|Nem| L
+    G --> M{Eltelt 5 másodperc?}
+    M -->|Igen| N[printSerialLine()<br/>értékek a Serialra]
+    M -->|Nem| G
 
-    %% 120 másodperces MQTT küldés
-    L --> MQTTCHECK{Eltelt 120 mp?}
-    MQTTCHECK -->|Igen| SEND[sendMqttData()<br/>JSON küldése MQTT-re]
-    MQTTCHECK -->|Nem| L
+    G --> O{Eltelt 120 másodperc?}
+    O -->|Igen| P[sendMqttData()<br/>JSON MQTT-re]
+    O -->|Nem| G
