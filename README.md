@@ -325,27 +325,28 @@ init_mqtt();
 ### A program működésének folyamatábrája
 
 ```mermaid
-flowchart TD
-    S([START]) --> I[Initialization<br>WiFi, MQTT, LCD, sensors]
-    I --> L{{loop()}}
+graph TD
+    S([START]) --> A[setup]
+    A --> B[init_wifi]
+    B --> C[init_mqtt]
+    C --> D[init LCD, DHT, PIR, LDR, gombok]
+    D --> E[showLCD - elso kirajzolas]
+    E --> L{{loop()}}
 
-    %% main loop steps
-    L --> D[handleDHT - read DHT11]
-    L --> B[handleButtons - menu, AltMenu, buzzer]
-    L --> ML[mqttClient.loop - keep MQTT alive]
+    L --> H[handleDHT - homerseklet, para]
+    L --> G[handleButtons - menuk, AltMenu, buzzer]
+    L --> M[mqttClient.loop - MQTT kapcsolat]
 
-    %% LCD update every 1s
-    L --> T1{1 second passed?}
-    T1 -->|yes| LCD[showLCD - update display]
-    T1 -->|no| L
+    L --> T1{1s eltelt?}
+    T1 -->|igen| LCD[showLCD - kijelzo frissites]
+    T1 -->|nem| L
 
-    %% Serial print every 5s
-    L --> T2{5 seconds passed?}
-    T2 -->|yes| SER[printSerialLine - log to Serial]
-    T2 -->|no| L
+    L --> T2{5s eltelt?}
+    T2 -->|igen| SER[printSerialLine - kiiras Serialra]
+    T2 -->|nem| L
 
-    %% MQTT publish every 120s
-    L --> T3{120 seconds passed?}
-    T3 -->|yes| MQ[sendMqttData - send JSON to broker]
-    T3 -->|no| L
+    L --> T3{120s eltelt?}
+    T3 -->|igen| MQ[sendMqttData - JSON MQTT-re]
+    T3 -->|nem| L
+
 ```
