@@ -325,28 +325,28 @@ init_mqtt();
 ### A program működésének folyamatábrája
 
 ```mermaid
-graph TD
-    S([START]) --> A[setup]
-    A --> B[init_wifi]
-    B --> C[init_mqtt]
-    C --> D[init LCD, DHT, PIR, LDR, gombok]
-    D --> E[showLCD - elso kirajzolas]
-    E --> L{{loop()}}
+flowchart TD
+    S([START]) --> A[setup()]
+    A --> B[init_wifi()]
+    B --> C[init_mqtt()]
+    C --> D[LCD + szenzorok init]
+    D --> E[showLCD() - első kirajzolás]
+    E --> L[loop() - fő ciklus]
 
-    L --> H[handleDHT - homerseklet, para]
-    L --> G[handleButtons - menuk, AltMenu, buzzer]
-    L --> M[mqttClient.loop - MQTT kapcsolat]
+    %% fő ciklus lépései
+    L --> H[handleDHT() - DHT11 mérés]
+    L --> G[handleButtons() - menü, AltMenu, buzzer]
+    L --> M[mqttClient.loop() - MQTT kapcsolat]
 
-    L --> T1{1s eltelt?}
-    T1 -->|igen| LCD[showLCD - kijelzo frissites]
-    T1 -->|nem| L
+    %% 1 másodperces LCD frissítés
+    L --> T1[Időzítő 1s - LCD frissítés showLCD()]
+    T1 --> L
 
-    L --> T2{5s eltelt?}
-    T2 -->|igen| SER[printSerialLine - kiiras Serialra]
-    T2 -->|nem| L
+    %% 5 másodperces soros kiírás
+    L --> T2[Időzítő 5s - printSerialLine()]
+    T2 --> L
 
-    L --> T3{120s eltelt?}
-    T3 -->|igen| MQ[sendMqttData - JSON MQTT-re]
-    T3 -->|nem| L
-
+    %% 120 másodperces MQTT publikálás
+    L --> T3[Időzítő 120s - sendMqttData()]
+    T3 --> L
 ```
