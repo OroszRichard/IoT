@@ -348,4 +348,4 @@ flowchart TD
     L --> T3{120 seconds passed?}
     T3 -->|yes| MQ[sendMqttData - send JSON to broker]
     T3 -->|no| L
-````
+```
