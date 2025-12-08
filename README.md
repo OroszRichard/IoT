@@ -324,44 +324,28 @@ init_mqtt();
 
 ### A program működésének folyamatábrája
 
-### A program működésének folyamatábrája
-
 ```mermaid
 flowchart TD
-    subgraph Setup() - Inicializálás
-        A([Start / Reset]) --> B[Serial.begin(9600)<br/>+ ADC beállítása]
-        B --> C[WiFi.mode(WIFI_STA)<br/>init_wifi()]
-        C --> D[init_mqtt()]
-        D --> E[LCD init / "Inicializalas..."]
-        E --> F[PIN módok beállítása<br/>(PIR, BUZZER, BTN1, BTN2)]
-        F --> G[dht.begin() / DHT indítás]
-        G --> H[delay(2000)]
-        H --> I[showLCD()<br/>Első kijelző frissítés]
-    end
+    S([START]) --> I[Initialization<br>WiFi, MQTT, LCD, sensors]
+    I --> L{{loop()}}
 
-    I --> J{loop() - Fő ciklus}
+    %% main loop steps
+    L --> D[handleDHT - read DHT11]
+    L --> B[handleButtons - menu, AltMenu, buzzer]
+    L --> ML[mqttClient.loop - keep MQTT alive]
 
-    subgraph Loop() - Folyamatos működés
-        J --> K[handleDHT()<br/>DHT adatfrissítés (2s intervallum)]
-        J --> L[handleButtons()<br/>Gombkezelés, menü váltás]
-        J --> M[mqttClient.loop()<br/>MQTT kapcsolat frissen tartása]
+    %% LCD update every 1s
+    L --> T1{1 second passed?}
+    T1 -->|yes| LCD[showLCD - update display]
+    T1 -->|no| L
 
-        J --> N{Eltelt 1000ms a showLCD óta?}
-        N -- Igen --> O[showLCD()<br/>Kijelző tartalmának frissítése]
-        N -- Nem --> P{Eltelt 5000ms a Serial óta?}
+    %% Serial print every 5s
+    L --> T2{5 seconds passed?}
+    T2 -->|yes| SER[printSerialLine - log to Serial]
+    T2 -->|no| L
 
-        O --> P
-
-        P --> Q[printSerialLine()<br/>Adatok kiírása Serialra (ha van változás)]
-        P -- Nem --> R{Eltelt 120000ms az MQTT óta?}
-
-        Q --> R
-
-        R --> S[sendMqttData()<br/>JSON küldése MQTT-re]
-        R -- Nem --> J
-
-        S --> J
-    end
-
-    classDef setup fill:#F9D97B
-    class A,B,C,D,E,F,G,H,I setup
+    %% MQTT publish every 120s
+    L --> T3{120 seconds passed?}
+    T3 -->|yes| MQ[sendMqttData - send JSON to broker]
+    T3 -->|no| L
+````
