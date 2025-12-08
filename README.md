@@ -34,7 +34,7 @@ A projekt célja egy ESP32 mikrokontrollerre épülő **környezetfigyelő** meg
   - [Főbb funkcionális modulok](#főbb-funkcionális-modulok)
       - [Menürendszer és gombkezelés](#menürendszer-és-gombkezelés)
       - [MQTT adatmodell](#mqtt-adatmodell)
-  - [A program működésének folyamatábrája]#A-program-működésének-folyamatábrája
+  - [A program működésének folyamatábrája](#A-program-működésének-folyamatábrája)
 
 ---
 
@@ -328,26 +328,40 @@ init_mqtt();
 
 ```mermaid
 flowchart TD
-    A([Inditas]) --> B[setup - inicializalas]
-    B --> C[WiFi init]
-    C --> D[MQTT init]
-    D --> E[LCD + szenzorok init]
-    E --> F[Elso showLCD()]
-    F --> G{loop() - fo ciklus}
+    subgraph Setup() - Inicializálás
+        A([Start / Reset]) --> B[Serial.begin(9600)<br/>+ ADC beállítása]
+        B --> C[WiFi.mode(WIFI_STA)<br/>init_wifi()]
+        C --> D[init_mqtt()]
+        D --> E[LCD init / "Inicializalas..."]
+        E --> F[PIN módok beállítása<br/>(PIR, BUZZER, BTN1, BTN2)]
+        F --> G[dht.begin() / DHT indítás]
+        G --> H[delay(2000)]
+        H --> I[showLCD()<br/>Első kijelző frissítés]
+    end
 
-    G --> H[handleDHT()<br/>DHT11 meres]
-    G --> I[handleButtons()<br/>gombok, menu]
-    G --> J[mqttClient.loop()<br/>MQTT kapcsolat]
+    I --> J{loop() - Fő ciklus}
 
-    G --> K{Eltelt 1 masodperc?}
-    K -->|Igen| L[showLCD()<br/>kijelzo frissites]
-    K -->|Nem| G
+    subgraph Loop() - Folyamatos működés
+        J --> K[handleDHT()<br/>DHT adatfrissítés (2s intervallum)]
+        J --> L[handleButtons()<br/>Gombkezelés, menü váltás]
+        J --> M[mqttClient.loop()<br/>MQTT kapcsolat frissen tartása]
 
-    G --> M{Eltelt 5 masodperc?}
-    M -->|Igen| N[printSerialLine()<br/>ertekek a Serialra]
-    M -->|Nem| G
+        J --> N{Eltelt 1000ms a showLCD óta?}
+        N -- Igen --> O[showLCD()<br/>Kijelző tartalmának frissítése]
+        N -- Nem --> P{Eltelt 5000ms a Serial óta?}
 
-    G --> O{Eltelt 120 masodperc?}
-    O -->|Igen| P[sendMqttData()<br/>JSON MQTT-re]
-    O -->|Nem| G
-```
+        O --> P
+
+        P --> Q[printSerialLine()<br/>Adatok kiírása Serialra (ha van változás)]
+        P -- Nem --> R{Eltelt 120000ms az MQTT óta?}
+
+        Q --> R
+
+        R --> S[sendMqttData()<br/>JSON küldése MQTT-re]
+        R -- Nem --> J
+
+        S --> J
+    end
+
+    classDef setup fill:#F9D97B
+    class A,B,C,D,E,F,G,H,I setup
