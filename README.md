@@ -328,25 +328,26 @@ init_mqtt();
 
 ```mermaid
 flowchart TD
-    A([Inditas]) --> B[setup - inicializalas]
-    B --> C[WiFi init]
-    C --> D[MQTT init]
-    D --> E[LCD + szenzorok init]
-    E --> F[Első showLCD()]
-    F --> G{{loop() - fő ciklus}}
+    A([Inditas]) --> B[setup - inicializalas]
+    B --> C[WiFi init]
+    C --> D[MQTT init]
+    D --> E[LCD + szenzorok init]
+    E --> F[Elso showLCD()]
+    F --> G{loop() - fo ciklus}
 
-    G --> H[handleDHT()<br/>DHT11 mérés]
-    G --> I[handleButtons()<br/>gombok, menü]
-    G --> J[mqttClient.loop()<br/>MQTT kapcsolat]
+    G --> H[handleDHT()<br/>DHT11 meres]
+    G --> I[handleButtons()<br/>gombok, menu]
+    G --> J[mqttClient.loop()<br/>MQTT kapcsolat]
 
-    G --> K{Eltelt 1 másodperc?}
-    K -->|Igen| L[showLCD()<br/>kijelző frissítés]
-    K -->|Nem| G
+    G --> K{Eltelt 1 masodperc?}
+    K -->|Igen| L[showLCD()<br/>kijelzo frissites]
+    K -->|Nem| G
 
-    G --> M{Eltelt 5 másodperc?}
-    M -->|Igen| N[printSerialLine()<br/>értékek a Serialra]
-    M -->|Nem| G
+    G --> M{Eltelt 5 masodperc?}
+    M -->|Igen| N[printSerialLine()<br/>ertekek a Serialra]
+    M -->|Nem| G
 
-    G --> O{Eltelt 120 másodperc?}
-    O -->|Igen| P[sendMqttData()<br/>JSON MQTT-re]
-    O -->|Nem| G
+    G --> O{Eltelt 120 masodperc?}
+    O -->|Igen| P[sendMqttData()<br/>JSON MQTT-re]
+    O -->|Nem| G
+```
