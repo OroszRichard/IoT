@@ -234,10 +234,10 @@ A teljes programkód itt érhető el:
 ### Menürendszer és gombkezelés
 
 A kijelzőn 5 fő menü jelenik meg, a `currentMenu` változó szerint:
-| #  | Megnevezés                 | Kép |
-|:--:|----------------------------|:---:|
-| 1. | **DHT adatok**             | <img src="Kijelző/Kijelző1.jpg" alt="IoT" width="200"> |
-| 2. | **Fényérzékelő**           | <img src="Kijelző/Kijelző3.jpg" alt="IoT" width="200"> |
+| #  | Megnevezés                 | Kép |Kép 2|
+|:--:|----------------------------|:---:|:---:|
+| 1. | **DHT adatok**             | <img src="Kijelző/Kijelző1.jpg" alt="IoT" width="200"> | <img src="Kijelző/Kijelző5.jpg" alt="IoT" width="200"> |
+| 2. | **Fényérzékelő**           | <img src="Kijelző/Kijelző3.jpg" alt="IoT" width="200"> | <img src="Kijelző/Kijelző4.jpg" alt="IoT" width="200"> |
 | 3. | **Mozgásérzékelő (PIR)**   | <img src="Kijelző/Kijelző2.jpg" alt="IoT" width="200"> |
 | 4. | **ESP hálózati adatok**    | <img src="Kijelző/Kijelző6.jpg" alt="IoT" width="200"> |
 | 5. | **Uptime**                 | <img src="Kijelző/Kijelző8.jpg" alt="IoT" width="200"> |
@@ -326,33 +326,26 @@ init_mqtt();
 
 ```mermaid
 flowchart TD
-  A[START / ESP32 reset] --> B[setup()]
-  B --> C[WiFi inicializálás<br>init_wifi()]
-  C --> D[MQTT kliens beállítása<br>init_mqtt()]
-  D --> E[GPIO, DHT, LCD<br>inicializálása]
-  E --> F[Első LCD frissítés<br>showLCD()]
-  F --> G{{loop() végtelen ciklus}}
+    A([START / reset]) --> B[setup()]
+    B --> C[WiFi init]
+    C --> D[MQTT init]
+    D --> E[LCD + szenzorok init]
+    E --> F[Első showLCD()]
+    F --> G{{loop() - fő ciklus}}
 
-  %% Fő ciklus lépései
-  G --> H[handleDHT()<br>DHT11 mérés 2 mp-enként]
-  G --> I[handleButtons()<br>menü / AltMenu váltás,<br>buzzer visszajelzés]
-  G --> J[mqttClient.loop()<br>MQTT kapcsolat fenntartása]
+    G --> H[handleDHT()<br/>DHT11 mérés]
+    G --> I[handleButtons()<br/>gombok, menü]
+    G --> J[mqttClient.loop()<br/>MQTT kapcsolat]
 
-  %% 1 másodperces LCD frissítés
-  G --> K{Eltelt 1 s?}
-  K -- Igen --> L[showLCD()<br>aktuális menü kirajzolása]
-  L --> G
-  K -- Nem --> G
+    G --> K{Eltelt 1 másodperc?}
+    K -->|Igen| L[showLCD()<br/>kijelző frissítés]
+    K -->|Nem| G
 
-  %% 5 másodperces soros kiírás
-  G --> M{Eltelt 5 s?}
-  M -- Igen --> N[printSerialLine()<br>értékek kiírása Serialra]
-  N --> G
-  M -- Nem --> G
+    G --> M{Eltelt 5 másodperc?}
+    M -->|Igen| N[printSerialLine()<br/>értékek a Serialra]
+    M -->|Nem| G
 
-  %% 120 másodperces MQTT küldés
-  G --> O{Eltelt 120 s?}
-  O -- Igen --> P[sendMqttData()<br>JSON publikálása<br>esp32/28562F4A74A8]
-  P --> G
-  O -- Nem --> G
-
+    G --> O{Eltelt 120 másodperc?}
+    O -->|Igen| P[sendMqttData()<br/>JSON MQTT-re]
+    O -->|Nem| G
+```
