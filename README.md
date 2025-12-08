@@ -34,6 +34,7 @@ A projekt célja egy ESP32 mikrokontrollerre épülő **környezetfigyelő** meg
   - [Főbb funkcionális modulok](#főbb-funkcionális-modulok)
       - [Menürendszer és gombkezelés](#menürendszer-és-gombkezelés)
       - [MQTT adatmodell](#mqtt-adatmodell)
+  - [A program működésének folyamatábrája]#A-program-működésének-folyamatábrája
 
 ---
 
@@ -314,8 +315,44 @@ init_wifi();
 init_mqtt();
 }
 ```
+
 - Az ESP32 felmegy a WiFi-re (ssid / password).
 - Beállítja az MQTT klienst, hogy TLS-es kapcsolattal kommunikáljon a HiveMQ Cloud brokerrel.
 - 2 percenként küldi a JSON-t
 - MQTT Eplorerrel lehet csatlakozni hozzá, a megadott belépési adatokkal.
 <img src="MQTT.png" alt="IoT" width="1000">
+
+### A program működésének folyamatábrája
+
+```mermaid
+flowchart TD
+  A[START / ESP32 reset] --> B[setup()]
+  B --> C[WiFi inicializálás<br>init_wifi()]
+  C --> D[MQTT kliens beállítása<br>init_mqtt()]
+  D --> E[GPIO, DHT, LCD<br>inicializálása]
+  E --> F[Első LCD frissítés<br>showLCD()]
+  F --> G{{loop() végtelen ciklus}}
+
+  %% Fő ciklus lépései
+  G --> H[handleDHT()<br>DHT11 mérés 2 mp-enként]
+  G --> I[handleButtons()<br>menü / AltMenu váltás,<br>buzzer visszajelzés]
+  G --> J[mqttClient.loop()<br>MQTT kapcsolat fenntartása]
+
+  %% 1 másodperces LCD frissítés
+  G --> K{Eltelt 1 s?}
+  K -- Igen --> L[showLCD()<br>aktuális menü kirajzolása]
+  L --> G
+  K -- Nem --> G
+
+  %% 5 másodperces soros kiírás
+  G --> M{Eltelt 5 s?}
+  M -- Igen --> N[printSerialLine()<br>értékek kiírása Serialra]
+  N --> G
+  M -- Nem --> G
+
+  %% 120 másodperces MQTT küldés
+  G --> O{Eltelt 120 s?}
+  O -- Igen --> P[sendMqttData()<br>JSON publikálása<br>esp32/28562F4A74A8]
+  P --> G
+  O -- Nem --> G
+
