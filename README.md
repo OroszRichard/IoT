@@ -328,7 +328,7 @@ init_mqtt();
 
 ```mermaid
 flowchart TD
-    A([Inditas]) --> B[setup()]
+    A([Inditas]) --> B[setup - inicializalas]
     B --> C[WiFi init]
     C --> D[MQTT init]
     D --> E[LCD + szenzorok init]
