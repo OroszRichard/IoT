@@ -325,24 +325,24 @@ init_mqtt();
 ### A program működésének folyamatábrája
 
 ```mermaid
-flowchart TD
-    S([START]) --> A[setup()]
-    A --> B[init_wifi()]
-    B --> C[init_mqtt()]
-    C --> D[showLCD() - first draw]
-    D --> L[loop()]
+graph TD
+  S[START] --> A[Setup]
+  A --> B[Init WiFi]
+  B --> C[Init MQTT]
+  C --> D[Show LCD first time]
+  D --> L[Main loop]
 
-    L --> H[handleDHT()]
-    L --> G[handleButtons()]
-    L --> M[mqttClient.loop()]
+  L --> H[Handle DHT]
+  L --> G[Handle buttons]
+  L --> M[MQTT loop]
 
-    L --> T1[1s timer - showLCD()]
-    T1 --> L
+  L --> T1[Timer 1 second LCD refresh]
+  T1 --> L
 
-    L --> T2[5s timer - printSerialLine()]
-    T2 --> L
+  L --> T2[Timer 5 seconds Serial print]
+  T2 --> L
 
-    L --> T3[120s timer - sendMqttData()]
-    T3 --> L
+  L --> T3[Timer 120 seconds MQTT publish]
+  T3 --> L
 
 ```
